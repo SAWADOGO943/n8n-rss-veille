@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: n8n-rss-veille
+    env: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: N8N_HOST
+        value: n8n-rss-veille.onrender.com   # ← Change avec le nom que tu choisis
+      - key: N8N_PROTOCOL
+        value: https
+      - key: WEBHOOK_URL
+        value: https://n8n-rss-veille.onrender.com   # ← Même nom ici
+      - key: N8N_ENCRYPTION_KEY
+        generateValue: true
+      - key: N8N_USER_MANAGEMENT_DISABLED
+        value: false
